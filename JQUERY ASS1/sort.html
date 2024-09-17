@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Sortable </title>
+  <link rel="icon" href="images (3).jfif" type="icon/type">
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <style>
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+    #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; position: relative; cursor: pointer; }
+    #sortable li span { position: absolute; margin-left: -1.3em; }
+    .edit-input { display: none; }
+    .heading{
+        margin-top: 70PX;
+        margin-left: 40PX;
+        font-size: 70PX;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      $("#sortable").sortable();
+      
+      $("#sortable").on("click", "li", function() {
+        var listItem = $(this);
+        var currentText = listItem.text().trim();
+        
+        // Hide other edit inputs
+        $("#sortable .edit-input").remove();
+        
+        // Create input field for editing
+        var editInput = $('<input type="text" class="edit-input">').val(currentText);
+        listItem.html(editInput);
+        editInput.focus().select();
+        
+        // Handle editing on Enter key press
+        editInput.on("keydown", function(event) {
+          if (event.keyCode === 13) { // Enter key
+            var newText = $(this).val();
+            listItem.html('<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>' + newText);
+          }
+        });
+        
+        // Cancel editing on Escape key press
+        editInput.on("keydown", function(event) {
+          if (event.keyCode === 27) { // Escape key
+            listItem.html('<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>' + currentText);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+ <h1 class="heading">SORTABLE:</h1>
+<ul id="sortable">
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>LIST 1</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>LIST 2</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>LIST 3</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>LIST 4</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>LIST 5</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>LIST 6</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>LIST 7</li>
+</ul>
+ 
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Selectable </title>
+  <link rel="icon" href="images (3).jfif" type="icon/type">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <style>
+    .heading{
+        margin-top: 70PX;
+        margin-left: 40PX;
+        font-size: 70PX;
+    }
+    #feedback { font-size: 1.4em; }
+    #selectable .ui-selecting { background: #4CAF50; } /* Changed to green */
+    #selectable .ui-selected { background: #FF5722; color: white; } /* Changed to orange */
+    #selectable { list-style-type: none; margin: 40px 0 0 0; padding: 0; width: 60%; } /* Added top margin */
+    #selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $("#selectable").selectable();
+    });
+  </script>
+</head>
+<body>
+    <h1 class="heading">SELECTABLE:</h1>
+  <ol id="selectable">
+    <li class="ui-widget-content">Burger</li>
+    <li class="ui-widget-content">Pizza</li>
+    <li class="ui-widget-content">Pasta</li>
+    <li class="ui-widget-content">Salad</li>
+    <li class="ui-widget-content">Soup</li>
+    <li class="ui-widget-content">Sushi</li>
+    <li class="ui-widget-content">Dessert</li>
+  </ol>
+</body>
+</html>
+
+

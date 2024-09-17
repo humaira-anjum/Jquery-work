@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Resizable </title>
+  <link rel="icon" href="r.jfif" type="icon/type">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <style>
+    #resizable { 
+      width: 150px; 
+      height: 150px; 
+      padding: 0.5em; 
+      background-color: #FFB6C1; /* LightPink color */
+      border: 2px solid #FF69B4; /* HotPink border */
+      border-radius: 5px;
+    }
+    #resizable h3 { 
+      text-align: center; 
+      margin: 0; 
+      background-color: #FF69B4; /* HotPink header background */
+      color: white;
+      padding: 0.5em;
+      border-radius: 3px 3px 0 0;
+    }
+    .heading{
+        margin-top: 40PX;
+        margin-left: 40PX;
+        font-size: 70PX;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      $("#resizable").resizable();
+    });
+  </script>
+</head>
+<body>
+  <h1 class="heading">RESIZABLE:</h1>
+  <div id="resizable" class="ui-widget-content">
+    <h3 class="ui-widget-header">Resizable</h3>
+  </div>
+</body>
+</html>
